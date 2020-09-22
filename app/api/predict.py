@@ -53,13 +53,17 @@ async def predict(item: Item):
     #y_pred = model.predict(Xnew)
     #y_pred = scaler_y.inverse_transform(y_pred)
     #y_pred = float(y_pred[0][0])
-    yy = str(data['Strain'])
+    yy = str(data.Strain.iloc[1996])
     desc = str(data.Description.iloc[1996])
-    rate = float(data.Description.iloc[1996])
+    rate = float(data.Rating.iloc[1996])
     typee = str(data.Type.iloc[1996])
     F = str(data.Flavors.iloc[1996])
     E = str(data.Effects.iloc[1996])
     return {
-        'prediction': yy, 'Description': desc,
-               'rating': rate, 'Type': typee, 'Effects': E, 'Flavors':F
+        'prediction': yy,
+        'Description': desc,
+        'rating': rate,
+        'Type': typee,
+        'Effects': E,
+        'Flavors': F
     }
