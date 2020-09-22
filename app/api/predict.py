@@ -18,7 +18,7 @@ log = logging.getLogger(__name__)
 router = APIRouter()
 
 """read in the data"""
-data = pd.read_csv('https://raw.githubusercontent.com/build-week-medcabinet-ch/data-science/data/data/cleancannabis.csv', index_col=0)
+data = pd.read_csv('https://raw.githubusercontent.com/build-week-medcabinet-ch/data-science/deploy/data/cleanercannabis.csv')
 
 
 class Item(BaseModel):
@@ -53,12 +53,13 @@ async def predict(item: Item):
     #y_pred = model.predict(Xnew)
     #y_pred = scaler_y.inverse_transform(y_pred)
     #y_pred = float(y_pred[0][0])
-    yy = str(data.Strain.iloc[1996])
-    desc = str(data.Description.iloc[1996])
-    rate = float(data.Rating.iloc[1996])
-    typee = str(data.Type.iloc[1996])
-    F = str(data.Flavors.iloc[1996])
-    E = str(data.Effects.iloc[1996])
+    num1 = random.randint(0, 2277)
+    yy = str(data.Strain.iloc[num1])
+    desc = str(data.Description.iloc[num1])
+    rate = int(data.Rating.iloc[num1])
+    typee = str(data.Type.iloc[num1])
+    F = str(data.Flavors.iloc[num1])
+    E = str(data.Effects.iloc[num1])
     return {
         'prediction': yy,
         'Description': desc,
