@@ -18,7 +18,8 @@ log = logging.getLogger(__name__)
 router = APIRouter()
 
 """read in the data"""
-data = pd.read_csv('https://raw.githubusercontent.com/build-week-medcabinet-ch/data-science/deploy/data/cleanercannabis.csv')
+data = pd.read_csv('https://raw.githubusercontent.com/'
+                   'build-week-medcabinet-ch/data-science/master/data/final.csv', header=0)
 
 
 class Item(BaseModel):
@@ -26,7 +27,7 @@ class Item(BaseModel):
 
     Effects: str = Field(..., example='Creative,Energetic,Tingly,Euphoric,Relaxed')
     Type: str = Field(..., example='hybrid,sativa,indica')
-    Flavors: str = Field(..., example='Earthy,Sweet,Citrus')
+    Flavor: str = Field(..., example='Earthy,Sweet,Citrus')
 
     def to_df(self):
         """Convert pydantic object to pandas dataframe with 1 row."""
@@ -58,7 +59,7 @@ async def predict(item: Item):
     desc = str(data.Description.iloc[num1])
     rate = int(data.Rating.iloc[num1])
     typee = str(data.Type.iloc[num1])
-    F = str(data.Flavors.iloc[num1])
+    F = str(data.Flavor.iloc[num1])
     E = str(data.Effects.iloc[num1])
     return {
         'prediction': yy,
