@@ -1,11 +1,8 @@
 from fastapi import APIRouter, HTTPException
-import pandas as pd
-import plotly.express as px
-import numpy as np
 
 router = APIRouter()
 
-
+"""
 @router.get('/vizmap')
 async def visual():
     # load in airbnb dataset
@@ -30,3 +27,4 @@ async def visual():
     # plot map
     fig.show()
     return fig.to_json()
+"""

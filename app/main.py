@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 
-from app.api import predict, vizmap
+from app.api import predict, viz
 
 app = FastAPI(
     title='Med Cabinet DS API',
@@ -12,7 +12,7 @@ app = FastAPI(
 )
 
 app.include_router(predict.router)
-app.include_router(vizmap.router)
+app.include_router(viz.router)
 
 
 app.add_middleware(
