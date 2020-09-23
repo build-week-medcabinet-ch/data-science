@@ -18,8 +18,7 @@ log = logging.getLogger(__name__)
 router = APIRouter()
 
 """read in the data"""
-data = pd.read_csv('https://raw.githubusercontent.com/'
-                   'build-week-medcabinet-ch/data-science/master/data/final.csv', header=0)
+data = pd.read_csv('https://raw.githubusercontent.com/build-week-medcabinet-ch/data-science/master/data/final%20(1).csv')
 
 
 class Item(BaseModel):
@@ -59,7 +58,7 @@ async def predict(item: Item):
     desc = str(data.Description.iloc[num1])
     rate = int(data.Rating.iloc[num1])
     typee = str(data.Type.iloc[num1])
-    F = str(data.Flavor.iloc[num1])
+    F = str(data.Flavors.iloc[num1])
     E = str(data.Effects.iloc[num1])
     return {
         'prediction': yy,
