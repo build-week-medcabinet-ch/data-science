@@ -40,4 +40,4 @@ Jinja2 = "==2.11.2"
 Keras-Preprocessing = "==1.1.2"
 
 [requires]
-python_version = "3.7"
+python_version = "3.6"
