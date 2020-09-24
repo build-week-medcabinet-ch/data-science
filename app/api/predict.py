@@ -1,24 +1,16 @@
 import logging
 import random
 
-from fastapi import APIRouter
 import pandas as pd
-import numpy as np
-from pydantic import BaseModel, Field, validator
-from sklearn.preprocessing import MinMaxScaler
-from sklearn.preprocessing import StandardScaler
-from sklearn.model_selection import train_test_split
-import tensorflow as tf
-from tensorflow import keras
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense
-
+from fastapi import APIRouter
+from pydantic import BaseModel, Field
 
 log = logging.getLogger(__name__)
 router = APIRouter()
 
 """read in the data"""
-data = pd.read_csv('https://raw.githubusercontent.com/build-week-medcabinet-ch/data-science/master/data/final%20(1).csv')
+data = pd.read_csv('https://raw.githubusercontent.com/'
+                   'build-week-medcabinet-ch/data-science/master/data/final%20(1).csv')
 
 
 class Item(BaseModel):

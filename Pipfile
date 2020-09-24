@@ -19,6 +19,13 @@ plotly = "*"
 numpy = "*"
 pipenv = "*"
 plotly-express = "*"
+sklearn = "*"
+seaborn = "*"
+matplotlib = "*"
+nltk = "*"
+wordcloud = "*"
+spacy = "*"
+bs4 = "*"
 
 [requires]
 python_version = "3.7"
