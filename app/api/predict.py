@@ -8,8 +8,8 @@ import pickle
 with open("app/api/tvec", 'rb') as file:
     vec = pickle.load(file)
 
-with open("app/api/nearest", 'rb') as file:
-    nearest = pickle.load(file)
+with open("app/api/nearests", 'rb') as file:
+    nearests = pickle.load(file)
 
 log = logging.getLogger(__name__)
 router = APIRouter()
@@ -69,7 +69,7 @@ async def predict(item: Item):
     temp['Type'] = types[item.Type.lower()]
     dtm = pd.DataFrame(np.array(vec.transform([item.Description]).todense()[0]))
     temp = pd.concat([temp, dtm], axis=1)
-    neighbors = nearest.kneighbors([temp.iloc[0]])[1][0]
+    neighbors = nearests.kneighbors([temp.iloc[0]])[1][0]
     return {
         "predictions": [ohe.iloc[i]['Strain'] for i in neighbors],
         "description": data[data['Strain'] == ohe.iloc[neighbors[0]]['Strain']].Description.values[0],
