@@ -16,7 +16,7 @@ router = APIRouter()
 
 """read in the data"""
 data = pd.read_csv('https://raw.githubusercontent.com/build-week-medcabinet-ch/data-science/master/data/final%20(1).csv')
-ohe = pd.read_csv('notebooks/psuedo_ohe.csv')
+ohe = pd.read_csv('https://raw.githubusercontent.com/build-week-medcabinet-ch/data-science/master/notebooks/psuedo_ohe.csv')
 effect = {'Aroused', 'Creative', 'Dry Mouth',
           'Energetic', 'Euphoric', 'Focused',
           'Giggly', 'Happy', 'Hungry',
