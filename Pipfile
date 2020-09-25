@@ -18,7 +18,7 @@ uvicorn = "*"
 plotly = "*"
 numpy = "*"
 plotly-express = "*"
-sklearn = "*"
+scikit-learn = "*"
 seaborn = "*"
 matplotlib = "*"
 
