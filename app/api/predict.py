@@ -5,10 +5,10 @@ from fastapi import APIRouter
 from pydantic import BaseModel, Field
 import pickle
 
-with open("app/api/model/vect", 'rb') as file:
-    vect = pickle.load(file)
+with open("app/api/tvec", 'rb') as file:
+    vec = pickle.load(file)
 
-with open("app/api/model/nearest", 'rb') as file:
+with open("app/api/nearest", 'rb') as file:
     nearest = pickle.load(file)
 
 log = logging.getLogger(__name__)
@@ -67,7 +67,7 @@ async def predict(item: Item):
         if i.capitalize() in flavor:
             temp[i][0] = 1
     temp['Type'] = types[item.Type.lower()]
-    dtm = pd.DataFrame(np.array(vect.transform([item.Description]).todense()[0]))
+    dtm = pd.DataFrame(np.array(vec.transform([item.Description]).todense()[0]))
     temp = pd.concat([temp, dtm], axis=1)
     neighbors = nearest.kneighbors([temp.iloc[0]])[1][0]
     return {
