@@ -5,10 +5,10 @@ from fastapi import APIRouter
 from pydantic import BaseModel, Field
 import pickle
 
-with open("model/vect", 'rb') as file:
+with open("app/api/model/vect", 'rb') as file:
     vect = pickle.load(file)
 
-with open("model/nearest", 'rb') as file:
+with open("app/api/model/nearest", 'rb') as file:
     nearest = pickle.load(file)
 
 log = logging.getLogger(__name__)

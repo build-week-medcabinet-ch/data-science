@@ -3,5 +3,5 @@
 .ipynb_checkpoints
 .pytest_cache
 .vscode
-/model/nearest
-/model
+/app/api/model/nearest
+/app/api/model
